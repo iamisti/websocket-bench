@@ -1,0 +1,128 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'publish' ]
+2 info using npm@3.9.5
+3 info using node@v6.2.2
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: 'C:\\Users\\GPX\\websocket-bench',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory C:\Users\GPX\AppData\Roaming\npm-cache\websocket-bench-iamisti\0.2.0\package.tgz not in flight; packing
+9 verbose correctMkdir C:\Users\GPX\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+10 info lifecycle websocket-bench-iamisti@0.2.0~prepublish: websocket-bench-iamisti@0.2.0
+11 silly lifecycle websocket-bench-iamisti@0.2.0~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ 'C:\\Users\\GPX\\AppData\\Roaming\\npm-cache\\websocket-bench-iamisti\\0.2.0\\package.tgz',
+12 verbose tar pack   'C:\\Users\\GPX\\websocket-bench' ]
+13 verbose tarball C:\Users\GPX\AppData\Roaming\npm-cache\websocket-bench-iamisti\0.2.0\package.tgz
+14 verbose folder C:\Users\GPX\websocket-bench
+15 verbose addLocalTarball adding from inside cache C:\Users\GPX\AppData\Roaming\npm-cache\websocket-bench-iamisti\0.2.0\package.tgz
+16 verbose correctMkdir C:\Users\GPX\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+17 silly cache afterAdd websocket-bench-iamisti@0.2.0
+18 verbose afterAdd C:\Users\GPX\AppData\Roaming\npm-cache\websocket-bench-iamisti\0.2.0\package\package.json not in flight; writing
+19 verbose correctMkdir C:\Users\GPX\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+20 verbose afterAdd C:\Users\GPX\AppData\Roaming\npm-cache\websocket-bench-iamisti\0.2.0\package\package.json written
+21 silly publish { name: 'websocket-bench-iamisti',
+21 silly publish   version: '0.2.0',
+21 silly publish   description: 'tool for benchmark websocket (socket.io, faye)',
+21 silly publish   main: 'index.js',
+21 silly publish   scripts: { test: 'gulp mocha' },
+21 silly publish   repository:
+21 silly publish    { type: 'git',
+21 silly publish      url: 'git://github.com/iamisti/websocket-bench.git' },
+21 silly publish   bin: { 'websocket-bench': './bin/websocket-bench' },
+21 silly publish   author: '',
+21 silly publish   license: 'BSD',
+21 silly publish   dependencies:
+21 silly publish    { 'socket.io-client': '~1.3.5',
+21 silly publish      'engine.io-client': '~0.9.0',
+21 silly publish      commander: '~1.1.1',
+21 silly publish      colors: '~0.6',
+21 silly publish      'cli-table': '~0.3.0',
+21 silly publish      faye: '~0.8.9',
+21 silly publish      winston: '~0.7.1',
+21 silly publish      'socket.io': '~1.3.5',
+21 silly publish      primus: '~1.5.2',
+21 silly publish      autobahn: '~0.9.5' },
+21 silly publish   devDependencies:
+21 silly publish    { chai: '~1.6.0',
+21 silly publish      mocha: '*',
+21 silly publish      sinon: '*',
+21 silly publish      gulp: '~3.5.2',
+21 silly publish      'gulp-util': '~2.2.14',
+21 silly publish      'gulp-jshint': '~1.4.2',
+21 silly publish      'jshint-stylish': '~0.1.5',
+21 silly publish      'gulp-mocha': '~0.4.1',
+21 silly publish      'gulp-bump': '~0.1.5' },
+21 silly publish   readme: '# websocket bench [![Build Status](https://travis-ci.org/M6Web/websocket-bench.png?branch=master)](https://travis-ci.org/M6Web/websocket-bench)\r\n\r\n\r\nNodejs cli tool for benchmarking websocket servers. Currently supports:\r\n* [Socket.IO](https://github.com/LearnBoost/socket.io)\r\n* [Engine.IO](https://github.com/LearnBoost/engine.io)\r\n* [Faye](https://github.com/faye/faye)\r\n* [Primus](https://github.com/primus/primus)\r\n* [WAMP](https://github.com/tavendo/AutobahnJS)\r\n\r\n## Installation\r\n\r\n   `npm install -g websocket-bench`\r\n\r\n## Running Tests/Linting\r\n\r\n  First Install required dev-dependencies `npm install`\r\n  Run Gulp Build Tool `gulp mocha`\r\n\r\n## Usage\r\n\r\nTip: You may find it useful to increase the maximum number of open file descriptors on your system during testing:\r\n\r\n`ulimit -n 60000`\r\n\r\nSimple example (using Socket.IO by default):\r\n\r\n`websocket-bench -a 2500 -c 200 http://localhost:3000`\r\n\r\nSimple example (using Primus):\r\n\r\n`websocket-bench -t primus ws://localhost:8080`\r\n\r\ncommand help\r\n\r\n    Usage: websocket-bench [options] <server>\r\n\r\n    Options:\r\n\r\n      -h, --help               Output usage information\r\n      -V, --version            Output the version number\r\n      -a, --amount <n>         Total number of persistent connection, Default to 100\r\n      -c, --concurency <n>     Concurent connection per second, Default to 20\r\n      -w, --worker <n>         Number of worker(s)\r\n      -g, --generator <file>   Js file for generate message or special event\r\n      -m, --message <n>        Number of message for a client. Default to 0\r\n      -o, --output <output>    Output file\r\n      -t, --type <type>        Type of websocket server to bench(socket.io, engine.io, faye, primus, wamp). Default to socket.io\r\n      -p, --transport <type>   Type of transport to websocket(engine.io, websockets, browserchannel, sockjs, socket.io). Default to websockets (Just for Primus)\r\n      -k, --keep-alive         Keep alive connection\r\n      -v, --verbose            Verbose Logging\r\n\r\n\r\n## Benchmark message\r\n\r\nFor benchmark message or more advanced connection you should provide your own `generator`\r\n\r\ngenerator structure :\r\n\r\n```javascript\r\n\r\n    module.exports = {\r\n       /**\r\n        * Before connection (optional, just for faye)\r\n        * @param {client} client connection\r\n        */\r\n       beforeConnect : function(client) {\r\n         // Example:\r\n         // client.setHeader(\'Authorization\', \'OAuth abcd-1234\');\r\n         // client.disable(\'websocket\');\r\n       },\r\n\r\n       /**\r\n        * On client connection (required)\r\n        * @param {client} client connection\r\n        * @param {done} callback function(err) {}\r\n        */\r\n       onConnect : function(client, done) {\r\n         // Faye client\r\n         // client.subscribe(\'/channel\', function(message) { });\r\n\r\n         // Socket.io client\r\n         // client.emit(\'test\', { hello: \'world\' });\r\n\r\n         // Primus client\r\n         // client.write(\'Sailing the seas of cheese\');\r\n\r\n         // WAMP session\r\n         // client.subscribe(\'com.myapp.hello\').then(function(args) { });\r\n\r\n         done();\r\n       },\r\n\r\n       /**\r\n        * Send a message (required)\r\n        * @param {client} client connection\r\n        * @param {done} callback function(err) {}\r\n        */\r\n       sendMessage : function(client, done) {\r\n         // Example:\r\n         // client.emit(\'test\', { hello: \'world\' });\r\n         // client.publish(\'/test\', { hello: \'world\' });\r\n         // client.call(\'com.myapp.add2\', [2, 3]).then(function (res) { });\r\n         done();\r\n       },\r\n\r\n       /**\r\n        * WAMP connection options\r\n        */\r\n       options : {\r\n         // realm: \'chat\'\r\n       }\r\n    };\r\n\r\n```\r\n\r\n## See also\r\n\r\nFrench article about websocket-bench : [Benchmarking websockets avec Node.Js](http://tech.m6web.fr/benchmarking-websockets-avec-nodejs)\r\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: '7c277eff526b28d0754babb975e9356f2f059217',
+21 silly publish   bugs: { url: 'https://github.com/iamisti/websocket-bench/issues' },
+21 silly publish   homepage: 'https://github.com/iamisti/websocket-bench#readme',
+21 silly publish   _id: 'websocket-bench-iamisti@0.2.0',
+21 silly publish   _shasum: '7e37fd75d5180bcffbd8522f4993b3995e054789',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name websocket-bench-iamisti
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'websocket-bench-iamisti',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   name: 'websocket-bench-iamisti',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/websocket-bench-iamisti
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading C:\Users\GPX\AppData\Roaming\npm-cache\websocket-bench-iamisti\0.2.0\package.tgz
+30 verbose request uri https://registry.npmjs.org/websocket-bench-iamisti
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 9:28:16 AM
+33 verbose request using bearer token for auth
+34 verbose request id 9e43edbf21a51785
+35 http request PUT https://registry.npmjs.org/websocket-bench-iamisti
+36 http 403 https://registry.npmjs.org/websocket-bench-iamisti
+37 verbose headers { 'content-type': 'application/json',
+37 verbose headers   'cache-control': 'max-age=300',
+37 verbose headers   'content-length': '95',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   date: 'Tue, 12 Jul 2016 07:28:18 GMT',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'x-served-by': 'cache-fra1225-FRA',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1468308497.673857,VS0,VE1121',
+37 verbose headers   vary: 'Accept-Encoding' }
+38 verbose request invalidating C:\Users\GPX\AppData\Roaming\npm-cache\registry.npmjs.org\websocket-bench-iamisti on PUT
+39 error publish Failed PUT 403
+40 verbose stack Error: "You cannot publish over the previously published version 0.2.0." : websocket-bench-iamisti
+40 verbose stack     at makeError (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:264:12)
+40 verbose stack     at CachingRegistryClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:252:14)
+40 verbose stack     at Request._callback (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:172:14)
+40 verbose stack     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:200:22)
+40 verbose stack     at emitTwo (events.js:106:13)
+40 verbose stack     at Request.emit (events.js:191:7)
+40 verbose stack     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1067:10)
+40 verbose stack     at emitOne (events.js:101:20)
+40 verbose stack     at Request.emit (events.js:188:7)
+40 verbose stack     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:988:12)
+41 verbose statusCode 403
+42 verbose pkgid websocket-bench-iamisti
+43 verbose cwd C:\Users\GPX\websocket-bench
+44 error Windows_NT 10.0.10586
+45 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish"
+46 error node v6.2.2
+47 error npm  v3.9.5
+48 error code E403
+49 error "You cannot publish over the previously published version 0.2.0." : websocket-bench-iamisti
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]
