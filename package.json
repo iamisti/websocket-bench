@@ -1,5 +1,5 @@
 {
-  "name": "websocket-bench",
+  "name": "websocket-bench-iamisti",
   "version": "0.2.0",
   "description": "tool for benchmark websocket (socket.io, faye)",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/M6Web/websocket-bench.git"
+    "url": "git://github.com/iamisti/websocket-bench.git"
   },
   "bin": {
     "websocket-bench": "./bin/websocket-bench"
